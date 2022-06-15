@@ -1,10 +1,10 @@
 ﻿; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-; SCRIPT NAME: Sinalizacao
-; DESCRIPTION: Automatizacao para o servico de sinalizacao no Sistlev
+; SCRIPT NAME: Sisthero - Sinalizacao
+; DESCRIPTION: Automatizacao para o servido de sinalizacao no Sistlev
 ; AUTHOR: Victor Dalosto
 ; E-MAIL: victordalosto@gmail.com
-; Version: v2.2 (2022_05_24)
-; Copyright @ 2020-2022 Victor Hugo Dalosto de Oliveira. All rights reserved.
+; Version: v2.0 (2022_04_13)
+; Copyright @ 2018 Victor Hugo Dalosto de Oliveira. All rights reserved.
 ; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -19,119 +19,117 @@ SetWorkingDir %A_ScriptDir%
 
 
 
+
 ; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-;                 FUNCOES DE SISTEMA    (Basic_Sistlev)   
+;                            FUNCOES DE SISTEMA                          
 ; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ; Pausa o script e todas as suas funcionalidades
-#p::Suspend ; WINDOWS + P
-^p::Suspend ; CTRL + P
-!p::Suspend ; ALT + P
-+p::Suspend ; SHIFT + P
+^p::Suspend ; WINDOWS + P
+#p::Suspend ; CTRL + P
 
 
-pressPauseButton() { ; varTogglePausePlay=0
+pressPause() {
     MouseMove, 682, 67
     Click
 }
 
 
-pressPlayButton() { ; varTogglePausePlay=1
+pressPlay() {
     MouseMove, 659, 67
     Click
 }
 
 
-varTogglePausePlay = 0 ; 0:Paused, 1:Play
+varTogglePause = 0 ; 0:Paused, 1:Play
 space::
-    if (varTogglePausePlay = 1) {
-        varTogglePausePlay = 0
-        pressPauseButton()
+    if (varTogglePause = 1) {
+        varTogglePause = 0
+        pressPause()
     } else {
-        varTogglePausePlay = 1
-        pressPlayButton()
+        varTogglePause = 1
+        pressPlay()
     }
 Return
 
 
-varToggleSpeedButton = 0 ; Handles the speed of Sistlev : -2|0.50, -1|0.75, 0|1.00, 1|1.5, 2|2
-pressSpeedButton(varToggleSpeedButton) {
-    if (varToggleSpeedButton = -2) { ; x1/2
+varToggleSpeed = 0 ; Handles the speed of Sistlev : -2:x1/2, -1:x3/4, 0:x1, 1:x1.5, 2:x2
+pressSpeedSistlev(varToggleSpeed) {
+    if (varToggleSpeed = -2) {
         MouseMove, 710, 67
     }
-    if (varToggleSpeedButton = -1) { ; x3/4
+    if (varToggleSpeed = -1) {
         MouseMove, 745, 67
     }
-    if (varToggleSpeedButton = 0) { ; x1
+    if (varToggleSpeed = 0) {
         MouseMove, 775, 67
     }
-    if (varToggleSpeedButton = 1) { ; x1.5
+    if (varToggleSpeed = 1) {
         MouseMove, 802, 67
     }
-    if (varToggleSpeedButton = 2) { ; x2
+    if (varToggleSpeed = 2) {
         MouseMove, 825, 67
     }
     Click
 }
 
 
-NumpadSub:: ; Slows down the viewing speed
-    if (not varToggleSpeedButton = -2) {
-        varToggleSpeedButton -= 1
+NumpadSub::
+    if (not varToggleSpeed = -2) {
+        varToggleSpeed -= 1
     }
-    pressSpeedButton(varToggleSpeedButton)
+    pressSpeedSistlev(varToggleSpeed)
 Return
 
 
-NumpadAdd:: ; Increases the viewing speed
-    if (not varToggleSpeedButton = 2) {
-        varToggleSpeedButton += 1
+NumpadAdd::
+    if (not varToggleSpeed = 2) {
+        varToggleSpeed += 1
     }
-    pressSpeedButton(varToggleSpeedButton)
+    pressSpeedSistlev(varToggleSpeed)
 Return
 
 
 ; Faz adiantar ou atrasar o video usando as setas <<< << < > >> >>>
-Left:: ; SetaEsquerda = < (Aperta voltar 1)
+Left::  
     MouseMove, 962, 65
     Click
 Return
 
-!Left:: ; ALT+SetaEsquerda = << (Aperta voltar 5)
+^Left::
     MouseMove, 935, 65
     Click
 Return
 
-^Left:: ; CTRL+SetaEsquerda = <<< (Aperta voltar 10)
++Left::
     MouseMove, 905, 65
     Click
 Return
 
-+Left:: ; SHIFT+SetaEsquerda = <<< (Aperta voltar 100)
+!Left::
     MouseMove, 867, 65
     Click
 Return
 
-Right:: ; SetaDireita = > (Aperta avançar 1)
+Right::
     MouseMove, 983, 65
     Click
 Return
 
-!Right:: ; ALT+SetaDireita = >> (Aperta avançar 5)
+^Right::
     MouseMove, 1010, 65
     Click
 Return
 
-^Right:: ; CTRL+SetaDireita = >>> (Aperta avançar 10)
++Right::
     MouseMove, 1040, 65
     Click
 Return
 
-+Right:: ; SHIFT+SetaDireita = >>>> (Aperta avançar 100)
+!Right::
     MouseMove, 1080, 65
     Click
 Return
-
 
 
 
@@ -220,13 +218,11 @@ Return
 
 
 
-
-
 ; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ;                    SITUACAO DAS PLACAS VERTICAIS
 ; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-pressButtonPlacaVerticalBoa() {
+pressVerticalBoa() {
     MouseMove, 350, 240
     Click
     MouseMove, 350, 255
@@ -234,7 +230,7 @@ pressButtonPlacaVerticalBoa() {
 }
 
 
-pressButtonVerticalRegular() {
+pressVerticalRegular() {
     MouseMove, 350, 240
     Click
     MouseMove, 350, 269
@@ -242,7 +238,7 @@ pressButtonVerticalRegular() {
 }
 
 
-pressButtonVerticalRuim() {
+pressVerticalRuim() {
     MouseMove, 350, 240
     Click
     MouseMove, 350, 283
@@ -251,19 +247,19 @@ pressButtonVerticalRuim() {
 
 
 P::  ; Placa Regular
-    pressButtonVerticalRegular()
+    pressVerticalRegular()
     MouseMove, 350, 260
 Return
 
 
 ç::  ; Placa RUIM
-    pressButtonVerticalRuim()
+    pressVerticalRuim()
     MouseMove, 350, 260
 Return
 
 
-marcaPlacaAdvertencia() {
-    pressButtonPlacaVerticalBoa()
+pressAdvertencia() {
+    pressVerticalBoa()
     MouseMove, 480, 240
     Click
     MouseMove, 480, 255
@@ -273,12 +269,12 @@ marcaPlacaAdvertencia() {
 
 
 a::   ; VERTICAL - Advertencia
-    marcaPlacaAdvertencia()
+    pressAdvertencia()
 Return
 
 
 z::   ; VERTICAL - Atrativo turistico
-    pressButtonPlacaVerticalBoa()
+    pressVerticalBoa()
     MouseMove, 480, 240
     Click
     MouseMove, 480, 269
@@ -288,7 +284,7 @@ Return
 
 
 d::   ; VERTICAL - Educativa
-    pressButtonPlacaVerticalBoa()
+    pressVerticalBoa()
     MouseMove, 480, 240
     Click
     MouseMove, 480, 283
@@ -298,7 +294,7 @@ Return
 
 
 i::   ; VERTICAL - Indicativa
-    pressButtonPlacaVerticalBoa()
+    pressVerticalBoa()
     MouseMove, 480, 240
     Click
     MouseMove, 480, 295
@@ -308,7 +304,7 @@ Return
 
 
 f::   ; VERTICAL - Regulamentacao
-    pressButtonPlacaVerticalBoa()
+    pressVerticalBoa()
     MouseMove, 480, 240
     Click
     MouseMove, 480, 308
@@ -318,7 +314,7 @@ Return
 
 
 s::  ; VERTICAL - Servicos auxiliares
-    pressButtonPlacaVerticalBoa()
+    pressVerticalBoa()
     MouseMove, 480, 240
     Click
     MouseMove, 480, 322
@@ -328,15 +324,13 @@ Return
 
 
 t::  ; VERTICAL - Temporaria
-    pressButtonPlacaVerticalBoa()
+    pressVerticalBoa()
     MouseMove, 480, 240
     Click
     MouseMove, 480, 334
     Click
     MouseMove, 480, 260
 Return
-
-
 
 
 
@@ -458,8 +452,6 @@ Return
 
 
 
-
-
 ; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ;                               NOVOS BOTOES
 ; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -500,7 +492,7 @@ Return
 
 
 varTogglePosto = 0
-8::  ; Alterna entre POSTO DE GASOLINA / SERVICO
+8::  ; POSTO DE GASOLINA / SERVICO
     MouseMove, 1632, 240
     Click
     if (varTogglePosto = 0) {
@@ -515,7 +507,7 @@ Return
 
 
 varToggleVegetacao = 0
-9::  ; Alterna entre vegetacao RASA | MEDIA | DENSA
+9::
     MouseMove, 1727, 240
     Click 
     if (varToggleVegetacao = 1) {
@@ -529,6 +521,13 @@ varToggleVegetacao = 0
         MouseMove, 1727, 283
     }
     Click
+Return
+
+
+0::
+    MouseMove, 1687, 262
+    Click
+    MouseMove, 1687, 278
 Return
 
 
@@ -570,13 +569,13 @@ Return
 
 
 loopAdvertencia(numInteracoes) {
-    pressPauseButton()
+    pressPause()
     while(numInteracoes > 0) {
-        marcaPlacaAdvertencia()
+        pressAdvertencia()
         MouseMove, 983, 65
         Click
         numInteracoes -= 1
     }
-    varTogglePausePlay = 1
-    pressPlayButton()
+    varTogglePause = 1
+    pressPlay()
 }
