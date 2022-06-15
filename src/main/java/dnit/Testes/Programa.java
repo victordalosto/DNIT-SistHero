@@ -1,31 +1,32 @@
-package javacode;
 
-public final class Programa {
+package dnit.testes;
+
+public class Programa {
+    
     private static Process process;
+    
     private Programa(){}
 
-    public static final void runPrograma(tipoPrograma tipo) {
+    public static synchronized void runPrograma(tipoPrograma tipo) {
         killProgram();
         System.out.println(tipo.getCaminhoArquivo());
     }
 
 
-    public static final void killProgram() {
+    public static void killProgram() {
         if (process != null)
             process.destroy();
     }
 
 
-    /**
-     * Conjunto de enums que identificam o tipo de arquivo que será aberto
-     */
+    /** Conjunto de enums que identificam o tipo de arquivo que será aberto */
     public enum tipoPrograma {
         BASIC("libs/Basic.exe"),
         PAVIMENTO("libs/Pavimento.exe"),
         SINALIZACAO("libs/Sinalizacao.exe"),
         ACOSTAMENTO("libs/Acostamento.exe");
     
-        private final String caminhoArquivo;
+        private String caminhoArquivo;
     
         private tipoPrograma(String caminhoArquivo) {
             this.caminhoArquivo = caminhoArquivo;

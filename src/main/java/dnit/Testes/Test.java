@@ -1,7 +1,8 @@
-package javacode;
+package dnit.testes;
 
 import java.util.Scanner;
-import javacode.Programa.tipoPrograma;
+
+import dnit.testes.Programa.tipoPrograma;
 
 public class Test {
 

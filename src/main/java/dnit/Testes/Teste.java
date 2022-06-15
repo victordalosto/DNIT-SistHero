@@ -1,8 +1,7 @@
-package javacode;
+package dnit.testes;
 
 import java.io.IOException;
 
-@SuppressWarnings( "deprecation" )
 public class Teste {
     public static void main(String[] args) {
 
