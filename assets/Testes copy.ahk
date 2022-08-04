@@ -32,12 +32,6 @@ ExitFunc() {
 ; Return
 
 
-Capslock::
-    Random, rnd, 1, 20
-    IniRead, frase,  %A_ScriptDir%\assets\frasesPedrao.ini, Frases, %rnd%
-    MsgBox 64, Sabedoria do dia:,  Frases do Pedrão:`n%frase%`n`n
-Return
-
 p::
     Msgbox, "2"
 Return
