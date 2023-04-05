@@ -1,6 +1,3 @@
-; FUNCIONALIDADES DE CLICK
-
-
 __isFixarClicado(x) {
     xCombo := x - 53
     global HEIGHT_FIXAR
@@ -12,11 +9,13 @@ __isFixarClicado(x) {
 }
 
 
+
 __click(x, y) {
     MouseMove, x, y
     Click
     MouseMove, 675, 80
 }
+
 
 
 safeClick(x, y) {
@@ -26,12 +25,14 @@ safeClick(x, y) {
 }
 
 
+
 clickButton(var) {
     if (isSistlevActive()) {
         global HEIGHT_BUTTON
         __click(var, HEIGHT_BUTTON)
     }
 }
+
 
 
 clickCombo(x, option) {
@@ -43,6 +44,7 @@ clickCombo(x, option) {
 }
 
 
+
 clickFixar(x) {
     if (isSistlevActive()) {
         xCombo := x - 53
@@ -50,6 +52,7 @@ clickFixar(x) {
         __click(xCombo, HEIGHT_FIXAR)
     }
 }
+
 
 
 clickCombo_PlusFixar(x, option) {
@@ -60,6 +63,7 @@ clickCombo_PlusFixar(x, option) {
         clickCombo(x, option)
     }
 }
+
 
 
 clickButton_PlusFixar(x) {

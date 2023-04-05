@@ -3,3 +3,5 @@ HEIGHT_COMBOBOX := 240
 HEIGHT_FIXAR := 264
 
 HEIGHT_OPTION := [255, 269, 281, 296, 309, 322, 333, 347]
+
+var_toggleSpeedButton := 0

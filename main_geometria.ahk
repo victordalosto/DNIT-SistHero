@@ -1,6 +1,7 @@
 #Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/vars/geometria.ahk
 #Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/initialization.ahk
 
+
 F1::clickCombo_PlusFixar(BUTTON_SECAO_ESQUERDA, HEIGHT_OPTION[1])
 F2::clickCombo_PlusFixar(BUTTON_SECAO_ESQUERDA, HEIGHT_OPTION[3])
 F3::clickCombo_PlusFixar(BUTTON_SECAO_ESQUERDA, HEIGHT_OPTION[2])
@@ -18,27 +19,20 @@ F4::clickFixar(BUTTON_SECAO_ESQUERDA)
 
 
 
-
-
 F5::clickCombo_PlusFixar(BUTTON_FAIXA_ESQUERDA, HEIGHT_OPTION[1])
 F6::clickCombo_PlusFixar(BUTTON_FAIXA_ESQUERDA, HEIGHT_OPTION[2])
-
-!F5::clickButton(BUTTON_FAIXA_ESQUERDA)
-!F6::clickButton(BUTTON_FAIXA_ESQUERDA)
-
-^F5::clickFixar(BUTTON_FAIXA_ESQUERDA)
-^F6::clickFixar(BUTTON_FAIXA_ESQUERDA)
-
 F7::clickCombo_PlusFixar(BUTTON_FAIXA_DIREITA, HEIGHT_OPTION[1])
 F8::clickCombo_PlusFixar(BUTTON_FAIXA_DIREITA, HEIGHT_OPTION[2])
 
+!F5::clickButton(BUTTON_FAIXA_ESQUERDA)
+!F6::clickButton(BUTTON_FAIXA_ESQUERDA)
 !F7::clickButton(BUTTON_FAIXA_DIREITA)
 !F8::clickButton(BUTTON_FAIXA_DIREITA)
 
+^F5::clickFixar(BUTTON_FAIXA_ESQUERDA)
+^F6::clickFixar(BUTTON_FAIXA_ESQUERDA)
 ^F7::clickFixar(BUTTON_FAIXA_DIREITA)
 ^F8::clickFixar(BUTTON_FAIXA_DIREITA)
-
-
 
 
 
@@ -59,8 +53,6 @@ F12::clickFixar(BUTTON_SECAO_DIREITA)
 
 
 
-
-
 $1::clickCombo_PlusFixar(BUTTON_TIPO_SUPERFICIE, HEIGHT_OPTION[2])
 $2::clickCombo_PlusFixar(BUTTON_TIPO_SUPERFICIE, HEIGHT_OPTION[1])
 
@@ -69,8 +61,6 @@ $2::clickCombo_PlusFixar(BUTTON_TIPO_SUPERFICIE, HEIGHT_OPTION[1])
 
 ^1::clickFixar(BUTTON_TIPO_SUPERFICIE)
 ^2::clickFixar(BUTTON_TIPO_SUPERFICIE)
-
-
 
 
 
@@ -106,8 +96,6 @@ $Numpad9::clickCombo_PlusFixar(BUTTON_NRFX, HEIGHT_OPTION[8])
 
 
 
-
-
 $c::clickButton_PlusFixar(BUTTON_CANTEIRO_CENTRAL)
 !c::clickButton(BUTTON_CANTEIRO_CENTRAL)
 ^c::clickFixar(BUTTON_CANTEIRO_CENTRAL)
@@ -118,22 +106,17 @@ $t::clickButton_PlusFixar(BUTTON_TRAVESSIA_URBANA)
 
 
 
-
-
 $v::isSistlevActive()
 !v::clickButton(BUTTON_VIAS_LATERAIS)
 ^v::clickFixar(BUTTON_VIAS_LATERAIS)
-
 
 $i::isSistlevActive()
 !i::clickButton(BUTTON_VIAS_INTERCESSOES)
 ^i::clickFixar(BUTTON_VIAS_INTERCESSOES)
 
-
 $ç::isSistlevActive()
 !ç::clickButton(BUTTON_CONSTRUCAO)
 ^ç::clickFixar(BUTTON_CONSTRUCAO)
-
 
 $e::isSistlevActive()
 !e::clickButton(BUTTON_EROSAO)
@@ -143,16 +126,12 @@ $o::isSistlevActive()
 !o::clickButton(BUTTON_PARADA_ONIBUS)
 ^o::clickFixar(BUTTON_PARADA_ONIBUS)
 
-
 $a::isSistlevActive()
 !a::clickButton(BUTTON_ACESSO)
 ^a::clickFixar(BUTTON_ACESSO)
 
 
 
-
-
-; Active if right arrow is pressed
 #If GetKeyState("Up", "P")  
     $i::clickCombo_PlusFixar(BUTTON_VIAS_INTERCESSOES, HEIGHT_OPTION[2])
     $v::clickCombo_PlusFixar(BUTTON_VIAS_LATERAIS, HEIGHT_OPTION[1])
@@ -164,9 +143,6 @@ $a::isSistlevActive()
 
 
 
-
-
-; Active if right arrow is pressed
 #If GetKeyState("Down", "P")  
     $i::clickCombo_PlusFixar(BUTTON_VIAS_INTERCESSOES, HEIGHT_OPTION[2])
     $v::clickCombo_PlusFixar(BUTTON_VIAS_LATERAIS, HEIGHT_OPTION[1])
@@ -178,9 +154,6 @@ $a::isSistlevActive()
 
 
 
-
-
-; Active if right arrow is pressed
 #If GetKeyState("Left", "P")  
     $i::clickCombo_PlusFixar(BUTTON_VIAS_INTERCESSOES, HEIGHT_OPTION[1])
     $v::clickCombo_PlusFixar(BUTTON_VIAS_LATERAIS, HEIGHT_OPTION[3])
@@ -192,9 +165,6 @@ $a::isSistlevActive()
 
 
 
-
-
-; Active if right arrow is pressed
 #If GetKeyState("Right", "P")  
     $i::clickCombo_PlusFixar(BUTTON_VIAS_INTERCESSOES, HEIGHT_OPTION[1])
     $v::clickCombo_PlusFixar(BUTTON_VIAS_LATERAIS, HEIGHT_OPTION[2])
@@ -203,11 +173,3 @@ $a::isSistlevActive()
     $o::clickCombo_PlusFixar(BUTTON_PARADA_ONIBUS, HEIGHT_OPTION[2])
     $a::clickCombo_PlusFixar(BUTTON_ACESSO, HEIGHT_OPTION[2])
 #If
-
-
-
-y::
-    MouseGetPos, MouseX, MouseY
-    PixelGetColor, color, %MouseX%, %MouseY%
-    MsgBox, The cursor is at X%MouseX% Y%MouseY% - Colors is %color%.
-Return

@@ -1,8 +1,10 @@
-SetWorkingDir, %A_ScriptDir%
 SendMode, Input
+
+
 
 #NoEnv
 #SingleInstance, Force
+
 
 
 #Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/vars/basic.ahk
