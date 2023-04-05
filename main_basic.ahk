@@ -1,2 +1,1 @@
-#Include ./scripts/vars/geometria.ahk
-#Include ./scripts/initialization.ahk
+#Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/initialization.ahk

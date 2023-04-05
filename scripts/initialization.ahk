@@ -5,7 +5,7 @@ SendMode, Input
 #SingleInstance, Force
 
 
-#Include ./scripts/vars/basic.ahk
-#Include ./scripts/functions.ahk
-#Include ./scripts/clicks.ahk
-#Include ./scripts/basic.ahk
+#Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/vars/basic.ahk
+#Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/functions.ahk
+#Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/clicks.ahk
+#Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/basic.ahk

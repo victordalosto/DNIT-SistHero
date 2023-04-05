@@ -1,6 +1,5 @@
-SetWorkingDir, %A_ScriptDir%
-#Include ./scripts/vars/geometria.ahk
-#Include ./scripts/initialization.ahk
+#Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/vars/geometria.ahk
+#Include //10.100.10.219/Videos$/Recebidos/sistdown-config/scripts/scripts/initialization.ahk
 
 F1::clickCombo_PlusFixar(BUTTON_SECAO_ESQUERDA, HEIGHT_OPTION[1])
 F2::clickCombo_PlusFixar(BUTTON_SECAO_ESQUERDA, HEIGHT_OPTION[3])
