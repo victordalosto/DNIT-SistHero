@@ -1,10 +1,19 @@
+;
+; Funcoes para clicar na tela usando o contexto do sistlev
+; As funcoes apresentadas aqui ja fazem wrapper para englobar algumas rotinas de trabalho
+;
+; Created By Victor Hugo @VictorDalosto on 06/04/2023
+; Copyright © 2023 Victor Hugo Dalosto de Oliveira. All rights reserved.
+;
+
 __isFixarClicado(x) {
     xCombo := x - 53
     global HEIGHT_FIXAR
     MouseMove, 675, 80
     PixelGetColor, colorPlay, xCombo, HEIGHT_FIXAR
-    if (colorPlay == 0xFFFFFF)
+    if (colorPlay == 0xFFFFFF) {
         return false
+    }
     return true
 }
 

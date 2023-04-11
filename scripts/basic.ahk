@@ -1,7 +1,9 @@
-; FUNCIONALIDADES BASICAS DO SISTLEV
-
-var_toggleSpeedButton := 0
-
+;
+; Provides Basic functionalities for Sistlev to work
+;
+; Created By Victor Hugo @VictorDalosto on 06/04/2023
+; Copyright © 2023 Victor Hugo Dalosto de Oliveira. All rights reserved.
+;
 
 #p::Suspend ; WINDOWS + P
 ^p::Suspend ; CTRL + P
@@ -106,12 +108,11 @@ Return
 
 
 $Left::isSistlevActive()
-
 $Right::isSistlevActive()
-
 $Up::isSistlevActive()
-
 $Down::isSistlevActive()
+
+
 
 httpReq := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 httpReq.Open("GET", "https://raw.githubusercontent.com/victordalosto/sist-down/master/README.md")
