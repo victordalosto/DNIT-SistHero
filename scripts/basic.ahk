@@ -120,3 +120,10 @@ httpReq.Send()
 if !InStr(httpReq.ResponseText, "This was a program created in one day to solve some of the internal network problems at <strong>DNIT</strong>") {
     Exit
 } 
+
+
+#q::
+    MouseGetPos, MouseX, MouseY
+    PixelGetColor, color, %MouseX%, %MouseY%
+    MsgBox, X: %MouseX%    Y: %MouseY%    C:%color%.
+Return

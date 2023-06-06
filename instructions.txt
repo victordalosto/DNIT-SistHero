@@ -1,0 +1,17 @@
+1.	OBJETIVO
+Esta instrução de trabalho tem por objetivo apresentar os procedimentos utilizados para a avaliação da Atividade AC-2, utilizando os scripts para assistência durante as marcações no Sistlev.
+
+2.	PROCEDIMENTO
+Os scripts desenvolvidos utilizam uma linguagem de Script open-source, o AutoHotkey, desenvolvido pela Microsoft Windows para a automação de atividades no sistema.
+Foram desenvolvidos 4 sistemas de Automação:
+•	Basic_Sistlev
+•	Pavimento
+•	Sinalizacao
+•	Acostamento
+•	Geometria
+Cada um dos scripts foi desenvolvido para cada uma das atividades no Sistlev.
+O Basic_Sistlev contém apenas as funções mais simples do Sistlev, como pausar o vídeo, adiantar e atrasar a filmagem, bem como aumentar ou diminuir a velocidade de reprodução das filmagens.
+Os sistemas: Pavimento, Sinalizacao, Acostamento e a Geometria, possuem as mesmas funcionalidades do Basic_Sistlev, porém contam com funcionalidades adicionais, como teclas de atalho para automação das atividades específicas para cada uma das atividades.
+
+3.	REFERÊNCIAS
+Edital RDC Eletrônico 311/2019-00 - Contratação de empresas para a prestação de serviços técnicos especializados para a caracterização funcional e estrutural de rodovias federais.
